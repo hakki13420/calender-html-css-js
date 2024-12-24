@@ -53,10 +53,11 @@ function display(){
         return {
             monthName:intl.format(new Date(actualYear, month)),
             nbDaysOfMonth:new Date(actualYear, month+1,0).getDate(),
-            dayStart:new Date(actualYear, month).getDay()
+            dayStart:new Date(actualYear, month,1).getDay()
         }
     }
     )
+    console.log("$$", calendar)
     
     let daysHtml=daysCalender.map(day=>`<li>${day.charAt(0).toUpperCase()+day.slice(1)}</li>`)
     daysHtml=`<ul class="days">${daysHtml.join("")}</ul>`
@@ -66,7 +67,7 @@ function display(){
         let s2=""
         for(let i=1;i<=nbDaysOfMonth;i++){
             i===1
-              ?s2+=`<li class="first-day" style="grid-column-start: ${dayStart}">${i}</li>`
+              ?s2+=`<li class="first-day" style="grid-column-start: ${dayStart==0?7:dayStart}">${i}</li>`
               :s2+=`<li>${i}</li>`
         
         }

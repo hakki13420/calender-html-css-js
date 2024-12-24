@@ -75,6 +75,7 @@ h3{
 ul.days{
     font-size: 12px;
     column-gap: 26px;
+    padding: 10px 0;
 }
 ul{
     width: 50%;
